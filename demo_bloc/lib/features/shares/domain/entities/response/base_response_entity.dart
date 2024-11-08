@@ -1,3 +1,1 @@
-class BaseResponseEntity {
-  
-}
+class BaseResponseEntity {}

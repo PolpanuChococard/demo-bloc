@@ -1,7 +1,9 @@
-import 'package:demo_bloc/app_config/app_palettes.dart';
+import 'package:demo_bloc/core/app_config/app_palettes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class DemoOutlineTextFormField extends StatelessWidget {
+  final String name;
   final String? hintText;
   final String? initialValue;
   final Widget? prefix;
@@ -12,13 +14,14 @@ class DemoOutlineTextFormField extends StatelessWidget {
   final BorderRadius? borderRadius;
   final Color? fillColor;
   final VoidCallback? onTap;
-  final Function(String)? onChanged;
+  final Function(String) onChanged;
   final bool enabled;
   final bool obscureText;
   final int? maxLines;
 
   const DemoOutlineTextFormField(
       {super.key,
+      required this.name,
       this.style,
       this.hintText,
       this.initialValue,
@@ -29,22 +32,23 @@ class DemoOutlineTextFormField extends StatelessWidget {
       this.borderRadius,
       this.fillColor,
       this.onTap,
-      this.onChanged,
+      required this.onChanged,
       this.obscureText = false,
       this.enabled = true,
       this.maxLines});
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return FormBuilderTextField(
+      name: name,
       key: key,
       controller: controller,
       initialValue: initialValue,
       validator: validator,
       enabled: enabled,
       obscureText: obscureText,
-      onChanged: onChanged,
-      maxLines: maxLines,
+      onChanged: (value) => onChanged.call(value ?? ''),
+      maxLines: maxLines ?? 1,
       style: style,
       onTap: () => onTap?.call(),
       decoration: InputDecoration(
