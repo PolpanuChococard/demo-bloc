@@ -1,8 +1,9 @@
 import 'package:demo_bloc/core/enums/gender_type.dart';
 import 'package:demo_bloc/features/authentication/domain/entities/response/get_current_auth_response_entity.dart';
 import 'package:demo_bloc/features/authentication/domain/entities/response/log_in_response_entity.dart';
+import 'package:equatable/equatable.dart';
 
-class UserInfoEntity {
+class UserInfoEntity extends Equatable {
   final int id;
   final String username;
   final String email;
@@ -41,4 +42,8 @@ class UserInfoEntity {
           lastName: getCurrentAuthResponse.lastName,
           gender: getCurrentAuthResponse.gender,
           image: getCurrentAuthResponse.image);
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
 }

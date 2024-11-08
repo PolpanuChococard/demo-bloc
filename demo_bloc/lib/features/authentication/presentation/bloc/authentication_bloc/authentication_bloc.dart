@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:demo_bloc/core/enums/auth_status.dart';
@@ -7,11 +6,9 @@ import 'package:demo_bloc/core/enums/state_status.dart';
 import 'package:demo_bloc/core/extensions/response_extension.dart';
 import 'package:demo_bloc/core/resouces/secure_storage.dart';
 import 'package:demo_bloc/features/authentication/domain/entities/request/log_in_request_entity.dart';
-import 'package:demo_bloc/features/authentication/domain/entities/request/refresh_token_request_entity.dart';
 import 'package:demo_bloc/features/authentication/domain/entities/user_info_entity.dart';
 import 'package:demo_bloc/features/authentication/domain/use_cases/get_current_auth_use_case.dart';
 import 'package:demo_bloc/features/authentication/domain/use_cases/log_in_use_case.dart';
-import 'package:demo_bloc/features/authentication/domain/use_cases/refresh_token_use_case.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 
@@ -41,12 +38,8 @@ class AuthenticationBloc
     if (accessToken != null) {
       final res = await getCurrentAuthUseCase.call();
       if (res.isSuccessWithData) {
-        final userInfo =
-            UserInfoEntity.fromGetCurrentAuthUserResponse(res.data!);
         emit(state.copyWith(
-            authStatus: AuthStatus.authorized,
-            stateStatus: StateStatus.done,
-            userInfo: userInfo));
+            authStatus: AuthStatus.authorized, stateStatus: StateStatus.done));
       } else {
         //await secureStorage.deleteToken();
         emit(state.copyWith(authStatus: AuthStatus.unauthorized));
@@ -61,7 +54,7 @@ class AuthenticationBloc
     emit(state.copyWith(stateStatus: StateStatus.loading));
 
     final res = await logInUseCase.call(
-        params: LogInRequestEntity(
+        params: const LogInRequestEntity(
             username: 'emilys', password: 'emilyspass', expiresInMins: 5));
 
     if (res.isSuccessWithData) {
@@ -70,11 +63,9 @@ class AuthenticationBloc
           refreshToken: res.data!.refreshToken);
 
       await Future.delayed(const Duration(seconds: 3)); //simulated delay
-      final userInfo = UserInfoEntity.fromLoginResponse(res.data!);
+
       emit(state.copyWith(
-          stateStatus: StateStatus.done,
-          authStatus: AuthStatus.authorized,
-          userInfo: userInfo));
+          stateStatus: StateStatus.done, authStatus: AuthStatus.authorized));
     } else {
       //TODO handle login failed
     }
@@ -82,7 +73,7 @@ class AuthenticationBloc
 
   FutureOr<void> _onLogout(
       LogOutEvent event, Emitter<AuthenticationState> emit) async {
-    emit(AuthenticationState(stateStatus: StateStatus.loading));
+    emit(const AuthenticationState(stateStatus: StateStatus.loading));
     await Future.delayed(const Duration(seconds: 1)); //simulated delay
     await secureStorage.deleteToken();
     emit(const AuthenticationState());

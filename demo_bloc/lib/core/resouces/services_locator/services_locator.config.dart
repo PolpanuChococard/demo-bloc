@@ -21,9 +21,9 @@ import '../../../features/authentication/domain/use_cases/log_in_use_case.dart'
     as _i741;
 import '../../../features/authentication/domain/use_cases/refresh_token_use_case.dart'
     as _i152;
-import '../../../features/authentication/presentation/%E0%B8%B4bloc/authentication_bloc/authentication_bloc.dart'
+import '../../../features/authentication/presentation/bloc/authentication_bloc/authentication_bloc.dart'
     as _i215;
-import '../../../features/authentication/presentation/%E0%B8%B4bloc/login_bloc/login_bloc.dart'
+import '../../../features/authentication/presentation/bloc/login_bloc/login_bloc.dart'
     as _i224;
 import '../../../features/home/data/repositories/products_repository_impl.dart'
     as _i844;

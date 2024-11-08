@@ -5,7 +5,7 @@ part 'login_request_model.g.dart';
 
 @JsonSerializable()
 class LoginRequestModel extends LogInRequestEntity {
-  LoginRequestModel(
+  const LoginRequestModel(
       {required super.username,
       required super.password,
       required super.expiresInMins});

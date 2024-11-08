@@ -1,7 +1,6 @@
 import 'package:demo_bloc/core/app_config/app_style.dart';
 import 'package:demo_bloc/core/extensions/context_extension.dart';
 import 'package:demo_bloc/features/home/domain/entities/product/product_entity.dart';
-import 'package:demo_bloc/features/shares/presentation/widgets/demo_button.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
@@ -18,8 +17,8 @@ class ProductCard extends StatelessWidget {
           border: Border.all(
               width: 2,
               color: context.theme.colorScheme.primary.withOpacity(0.5))),
-      padding: EdgeInsets.all(AppStyle.seperator),
-      margin: EdgeInsets.all(AppStyle.seperator).copyWith(top: 0),
+      padding: const EdgeInsets.all(AppStyle.seperator),
+      margin: const EdgeInsets.all(AppStyle.seperator).copyWith(top: 0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -40,7 +39,7 @@ class _ProductImage extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 1,
       child: Container(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
               boxShadow: AppStyle.appBoxShadows,
               color: Colors.white,
@@ -73,12 +72,12 @@ class _ProductInfo extends StatelessWidget {
               style: context.textTheme.titleSmall,
               children: [
                 TextSpan(
-                    text: '${product.title}',
+                    text: product.title,
                     style: context.textTheme.bodySmall),
               ],
             ),
           ),
-          Divider(),
+          const Divider(),
           Text(
             product.description,
             style: context.textTheme.bodySmall,

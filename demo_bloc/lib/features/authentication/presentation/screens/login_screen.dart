@@ -1,8 +1,8 @@
 import 'package:demo_bloc/core/app_config/app_style.dart';
 import 'package:demo_bloc/core/enums/auth_status.dart';
 import 'package:demo_bloc/core/resouces/services_locator/services_locator.dart';
-import 'package:demo_bloc/features/authentication/presentation/%E0%B8%B4bloc/authentication_bloc/authentication_bloc.dart';
-import 'package:demo_bloc/features/authentication/presentation/%E0%B8%B4bloc/login_bloc/login_bloc.dart';
+import 'package:demo_bloc/features/authentication/presentation/bloc/authentication_bloc/authentication_bloc.dart';
+import 'package:demo_bloc/features/authentication/presentation/bloc/login_bloc/login_bloc.dart';
 import 'package:demo_bloc/features/authentication/presentation/widgets/email_text_field.dart';
 import 'package:demo_bloc/features/authentication/presentation/widgets/password_text_field.dart';
 import 'package:demo_bloc/features/shares/presentation/widgets/demo_app_bar.dart';

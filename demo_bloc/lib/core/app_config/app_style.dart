@@ -17,7 +17,7 @@ class AppStyle {
       color: Colors.black.withOpacity(0.1),
       blurRadius: 10,
       spreadRadius: 2,
-      offset: Offset(5, 5),
+      offset: const Offset(5, 5),
     )
   ];
 }

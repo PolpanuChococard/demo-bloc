@@ -1,4 +1,3 @@
-import 'package:demo_bloc/core/app_config/app_style.dart';
 import 'package:demo_bloc/core/enums/state_status.dart';
 import 'package:demo_bloc/core/resouces/services_locator/services_locator.dart';
 import 'package:demo_bloc/features/home/domain/entities/product/product_entity.dart';
@@ -23,8 +22,8 @@ class HomeScreen extends StatelessWidget {
       child: PopScope(
         canPop: false,
         child: Scaffold(
-            drawer: DemoDrawer(),
-            appBar: DemoAppBar(title: Text('Home')),
+            drawer: const DemoDrawer(),
+            appBar: const DemoAppBar(title: Text('Home')),
             body: BlocBuilder<ProductsBloc, ProductsState>(
               builder: (context, state) {
                 return Skeletonizer(
@@ -45,7 +44,7 @@ class HomeScreen extends StatelessWidget {
       builder: (context, state) {
         return ListView.builder(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: state.products.length,
           itemBuilder: (context, index) =>
               ProductCard(product: state.products[index]),

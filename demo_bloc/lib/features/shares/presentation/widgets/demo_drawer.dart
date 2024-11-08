@@ -1,6 +1,6 @@
 import 'package:demo_bloc/core/extensions/context_extension.dart';
 import 'package:demo_bloc/core/utils/dialog_util.dart';
-import 'package:demo_bloc/features/authentication/presentation/%E0%B8%B4bloc/authentication_bloc/authentication_bloc.dart';
+import 'package:demo_bloc/features/authentication/presentation/bloc/authentication_bloc/authentication_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

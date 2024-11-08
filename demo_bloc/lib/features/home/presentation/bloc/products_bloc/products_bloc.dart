@@ -14,7 +14,7 @@ part 'products_state.dart';
 @injectable
 class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
   final GetProductsUseCase getProductsUseCase;
-  ProductsBloc({required this.getProductsUseCase}) : super(ProductsState()) {
+  ProductsBloc({required this.getProductsUseCase}) : super(const ProductsState()) {
     on<InitialEvent>(_onInitial);
   }
 
@@ -23,7 +23,7 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
     final res = await getProductsUseCase.call();
 
     if (res.isSuccessWithData) {
-      await Future.delayed(Duration(seconds: 3));
+      await Future.delayed(const Duration(seconds: 3));
       emit(state.copyWith(
           products: res.data!.products, stateStatus: StateStatus.done));
     } else {

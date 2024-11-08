@@ -1,13 +1,9 @@
 import 'package:demo_bloc/core/app_config/app_palettes.dart';
 import 'package:demo_bloc/core/app_config/app_style.dart';
-import 'package:demo_bloc/core/enums/auth_status.dart';
-import 'package:demo_bloc/core/enums/state_status.dart';
 import 'package:demo_bloc/core/resouces/services_locator/services_locator.dart';
 import 'package:demo_bloc/core/utils/navigator_util.dart';
-import 'package:demo_bloc/features/authentication/presentation/%E0%B8%B4bloc/authentication_bloc/authentication_bloc.dart';
+import 'package:demo_bloc/features/authentication/presentation/bloc/authentication_bloc/authentication_bloc.dart';
 import 'package:demo_bloc/features/authentication/presentation/screens/auth_screen.dart';
-import 'package:demo_bloc/features/authentication/presentation/screens/login_screen.dart';
-import 'package:demo_bloc/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
@@ -38,7 +34,7 @@ class MyApp extends StatelessWidget {
               textTheme: AppStyle.primaryTextTheme,
               useMaterial3: true,
             ),
-            home: AuthScreen()),
+            home: const AuthScreen()),
       ),
     );
   }

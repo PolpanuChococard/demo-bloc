@@ -1,7 +1,7 @@
 import 'package:demo_bloc/core/enums/auth_status.dart';
 import 'package:demo_bloc/core/enums/state_status.dart';
 import 'package:demo_bloc/core/utils/navigator_util.dart';
-import 'package:demo_bloc/features/authentication/presentation/%E0%B8%B4bloc/authentication_bloc/authentication_bloc.dart';
+import 'package:demo_bloc/features/authentication/presentation/bloc/authentication_bloc/authentication_bloc.dart';
 import 'package:demo_bloc/features/authentication/presentation/screens/login_screen.dart';
 import 'package:demo_bloc/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +36,7 @@ class _AuthScreenState extends State<AuthScreen> {
         //handle auth status
         if (state.authStatus.isUnAuthorized && !state.stateStatus.isLoading) {
           NavigatorUtil.popToFirst();
-          NavigatorUtil.pushToPage(LoginScreen());
+          NavigatorUtil.pushToPage(const LoginScreen());
         }
 
         if (state.authStatus.isAuthorized && !state.stateStatus.isLoading) {

@@ -1,10 +1,7 @@
 import 'package:demo_bloc/features/home/data/models/product/product_dimensions_model.dart';
 import 'package:demo_bloc/features/home/data/models/product/product_meta_model.dart';
 import 'package:demo_bloc/features/home/data/models/product/product_review_model.dart';
-import 'package:demo_bloc/features/home/domain/entities/product/product_dimensions_entity.dart';
 import 'package:demo_bloc/features/home/domain/entities/product/product_entity.dart';
-import 'package:demo_bloc/features/home/domain/entities/product/product_meta_entity.dart';
-import 'package:demo_bloc/features/home/domain/entities/product/product_review_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'product_model.g.dart';

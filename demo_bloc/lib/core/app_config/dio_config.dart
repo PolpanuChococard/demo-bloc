@@ -20,5 +20,5 @@ class DioConfig {
     dio.interceptors.add(getIt.get<DemoInterceptor>());
   }
 
-  DioConfig.retry() {}
+  DioConfig.retry();
 }
